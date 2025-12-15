@@ -27,6 +27,7 @@ public class UsuarioRepositorio {
                         usuario.setCodTipoProfesional(rs.getInt("codigo_tipo_profesional"));
                         usuario.setDefTipProfesional(rs.getString("tipo_definicion"));
                         usuario.setDefNombreProfesional(rs.getString("nombre_completo"));
+                        usuario.setDefEstadoProfesional(rs.getInt("estado_profesional"));
                         // agrega más campos según tu procedimiento
                         return usuario;
                     }

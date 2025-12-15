@@ -5,6 +5,8 @@ public class UsuarioModel {
     private int codTipoProfesional;
     private String defTipProfesional;
     private String defNombreProfesional;
+    private int defEstadoProfesional;
+
 
 
     public int getCodUsuario() {
@@ -39,17 +41,27 @@ public class UsuarioModel {
         this.defNombreProfesional = defNombreProfesional;
     }
 
+    public int getDefEstadoProfesional() {
+        return this.defEstadoProfesional;
+    }
+
+    public void setDefEstadoProfesional(int defEstadoProfesional) {
+        this.defEstadoProfesional = defEstadoProfesional;
+    }
+    
+
 
     public UsuarioModel() {
     }
 
 
-    public UsuarioModel(int codUsuario, int codTipoProfesional, String defTipProfesional, String defNombreProfesional) {
+
+    public UsuarioModel(int codUsuario, int codTipoProfesional, String defTipProfesional, String defNombreProfesional, int defEstadoProfesional) {
         this.codUsuario = codUsuario;
         this.codTipoProfesional = codTipoProfesional;
         this.defTipProfesional = defTipProfesional;
         this.defNombreProfesional = defNombreProfesional;
+        this.defEstadoProfesional = defEstadoProfesional;
     }
-
 
 }
