@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Instituciones;
+import com.example.demo.model.PersonaIIEE;
+import com.example.demo.model.ResponsableIIEE;
 
 @Repository
 public class reponsableiiRepositorio {
@@ -28,4 +30,35 @@ public class reponsableiiRepositorio {
         return u;
     });
 }
+
+
+public int registro_personalIIEE(ResponsableIIEE responsableIIEE){
+            return jdbcTemplate.queryForObject(
+                    "CALL registro_personalIIEE(?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    new Object[]{responsableIIEE.getP_nombres_(), responsableIIEE.getP_primer_apellido_(),
+                        responsableIIEE.getP_segundo_apellido_(),responsableIIEE.getP_sexo_(),
+                        responsableIIEE.getP_fecha_nacimiento_(),
+                        responsableIIEE.getP_telefono_1_(),responsableIIEE.getP_telefono_2_(),
+                        responsableIIEE.getP_correo_(),responsableIIEE.getP_direccion_(),
+                        responsableIIEE.getP_tipo_doc_(),responsableIIEE.getP_nrdocumento_(),
+                        responsableIIEE.getPie_id_(),
+                        responsableIIEE.getCodigoRegistra_()
+                    },Integer.class
+                );
+    }
+
+
+    public List<PersonaIIEE> consultar_personalIIEE(Integer pie_id){
+            return jdbcTemplate.query(
+                    "CALL consultar_personalIIEE(?)",
+                     new Object[]{pie_id},
+                    (rs, rowNum) -> {
+                        PersonaIIEE cabecera = new PersonaIIEE();
+                        cabecera.setCodigo(rs.getObject("pr_id",Integer.class));
+                        cabecera.setDescripcion(rs.getString("nombres_completos"));
+                        return cabecera;
+                    }
+                );
+    }
+
 }

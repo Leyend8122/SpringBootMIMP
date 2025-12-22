@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.CabeceraFicha;
 import com.example.demo.model.DetalleFicha;
+import com.example.demo.model.GCabeceraFicha;
+import com.example.demo.model.GDetalleFicha;
 
 @Repository
 public class FichaRepositorio {
@@ -76,12 +78,70 @@ public class FichaRepositorio {
                         detalle.setPdf_desinfectado(rs.getObject("pdf_desinfectado",Integer.class));
                         detalle.setPdf_otro_ambpreparacion(rs.getString("pdf_otro_ambpreparacion"));
                         detalle.setImagenes(rs.getString("imagenes"));
+                        detalle.setPdf_id(rs.getObject("pdf_id",Integer.class));
                         // agrega más campos según tu procedimiento
                         return detalle;
                     }
                 );
 
     }
+
+
+
+    public void Guardar_Cabecera(List<CabeceraFicha> CabeceraFicha){
+             CabeceraFicha.forEach(ficha ->{
+                jdbcTemplate.update(
+                    "CALL GuardarCabecera(?,?,?,?,?,?,?,?,?,?,?,?)",
+                        ficha.getPie_id(), ficha.getPf_nummanipuladores(),
+                        ficha.getPf_ubiseralimentacion(),ficha.getPf_racionesrecibieron(),
+                        ficha.getPf_derracionesrecibieron(),
+                        ficha.getPf_nusuarios(),ficha.getPf_resultado(),
+                        ficha.getPf_estado(),ficha.getPf_ultimoHito(),
+                        ficha.getPfObservacionesGeneral(),
+                        ficha.getPr_id(),ficha.getPf_id()
+                );
+             });
+    }
+            
+
+
+
+     public void Guardar_Detalle(List<DetalleFicha> DetalleFicha){
+        System.out.println(DetalleFicha.get(0).getPdf_cumplimiento());
+        
+
+        DetalleFicha.forEach(detalleficha ->{
+             jdbcTemplate.update(
+                    "CALL GuardarDetalle(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                        detalleficha.getPdf_cumplimiento(), detalleficha.getPdf_observacion(),
+                        detalleficha.getPdf_posicion(),detalleficha.getPdf_cantidad(),
+                        detalleficha.getPdf_estado(),
+                        detalleficha.getPdf_material(),detalleficha.getPdf_material_esp(),detalleficha.getPdf_vigencia(),
+                        detalleficha.getPdf_fecha_caducidad(),detalleficha.getPdf_tipo_cocina(),
+                        detalleficha.getPdf_tipo_cocina_esp(),
+                        detalleficha.getPdf_limpio(),detalleficha.getPdf_desinfectado(),
+                        detalleficha.getPdf_otro_ambpreparacion(),detalleficha.getPdf_id()
+                     );
+                });
+     };
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
 
 
 }

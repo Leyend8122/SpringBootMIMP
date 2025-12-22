@@ -9,7 +9,8 @@ public class WebConfig implements WebMvcConfigurer{
      @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // todas las rutas
-                .allowedOrigins("https://sage-crisp-065bf2.netlify.app") // origen permitido
+                // https://sage-crisp-065bf2.netlify.app
+                .allowedOrigins("http://localhost:8081") // origen permitido
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);

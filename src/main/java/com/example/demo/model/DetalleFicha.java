@@ -17,6 +17,8 @@ public class DetalleFicha {
     private Integer pdf_desinfectado;
     private String pdf_otro_ambpreparacion;
     private String imagenes;
+    private Integer pdf_id;
+
 
 
 
@@ -148,13 +150,21 @@ public class DetalleFicha {
         this.imagenes = imagenes;
     }
 
+    public Integer getPdf_id() {
+        return this.pdf_id;
+    }
+
+    public void setPdf_id(Integer pdf_id) {
+        this.pdf_id = pdf_id;
+    }
+
 
     public DetalleFicha() {
     }
 
+    
 
-
-    public DetalleFicha(Integer pp_id, Integer pdf_cumplimiento, String pdf_observacion, String pdf_posicion, Integer pdf_cantidad, Integer pdf_estado, Integer pdf_material, String pdf_material_esp, Integer pdf_vigencia, String pdf_fecha_caducidad, Integer pdf_tipo_cocina, String pdf_tipo_cocina_esp, Integer pdf_limpio, Integer pdf_desinfectado, String pdf_otro_ambpreparacion, String imagenes) {
+    public DetalleFicha(Integer pp_id, Integer pdf_cumplimiento, String pdf_observacion, String pdf_posicion, Integer pdf_cantidad, Integer pdf_estado, Integer pdf_material, String pdf_material_esp, Integer pdf_vigencia, String pdf_fecha_caducidad, Integer pdf_tipo_cocina, String pdf_tipo_cocina_esp, Integer pdf_limpio, Integer pdf_desinfectado, String pdf_otro_ambpreparacion, String imagenes, Integer pdf_id) {
         this.pp_id = pp_id;
         this.pdf_cumplimiento = pdf_cumplimiento;
         this.pdf_observacion = pdf_observacion;
@@ -171,7 +181,9 @@ public class DetalleFicha {
         this.pdf_desinfectado = pdf_desinfectado;
         this.pdf_otro_ambpreparacion = pdf_otro_ambpreparacion;
         this.imagenes = imagenes;
+        this.pdf_id = pdf_id;
     }
+
 
 
 
