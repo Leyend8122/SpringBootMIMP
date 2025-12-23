@@ -11,7 +11,7 @@ public class WebConfig implements WebMvcConfigurer{
         registry.addMapping("/**") // todas las rutas
                 // https://sage-crisp-065bf2.netlify.app
                 // http://localhost:8081
-                .allowedOrigins("https://sage-crisp-065bf2.netlify.app") // origen permitido
+                .allowedOrigins("http://localhost:8081") // origen permitido
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);

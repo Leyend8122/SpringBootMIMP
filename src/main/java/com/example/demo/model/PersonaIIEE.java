@@ -25,9 +25,6 @@ public class PersonaIIEE {
 
     public PersonaIIEE() {
     }
-
-
-
     public PersonaIIEE(Integer codigo, String descripcion) {
         this.codigo = codigo;
         this.descripcion = descripcion;

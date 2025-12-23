@@ -49,6 +49,8 @@ public class FichaRepositorio {
                         cabecera.setPf_ultimoHito(rs.getObject("pf_ultimoHito",Integer.class));
                         cabecera.setPfObservacionesGeneral(rs.getString("pf_observacionGeneral"));
                         cabecera.setPr_id(rs.getObject("pr_id",Integer.class));
+                        cabecera.setPf_defInstituciones(rs.getString("pf_defInstituciones"));
+                        cabecera.setPf_defResponsable(rs.getString("pf_defResponsable"));
                         // agrega más campos según tu procedimiento
                         return cabecera;
                     }
@@ -91,14 +93,15 @@ public class FichaRepositorio {
     public void Guardar_Cabecera(List<CabeceraFicha> CabeceraFicha){
              CabeceraFicha.forEach(ficha ->{
                 jdbcTemplate.update(
-                    "CALL GuardarCabecera(?,?,?,?,?,?,?,?,?,?,?,?)",
+                    "CALL GuardarCabecera(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                         ficha.getPie_id(), ficha.getPf_nummanipuladores(),
                         ficha.getPf_ubiseralimentacion(),ficha.getPf_racionesrecibieron(),
                         ficha.getPf_derracionesrecibieron(),
                         ficha.getPf_nusuarios(),ficha.getPf_resultado(),
                         ficha.getPf_estado(),ficha.getPf_ultimoHito(),
                         ficha.getPfObservacionesGeneral(),
-                        ficha.getPr_id(),ficha.getPf_id()
+                        ficha.getPr_id(),ficha.getPf_id(),ficha.getPf_defInstituciones(),
+                        ficha.getPf_defResponsable()
                 );
              });
     }

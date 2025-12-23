@@ -18,6 +18,8 @@ public class CabeceraFicha {
         private Integer pf_ultimoHito;
         private String pfObservacionesGeneral;
         private Integer pr_id;
+        private String pf_defInstituciones;
+        private String pf_defResponsable;
 
 
 
@@ -141,14 +143,24 @@ public class CabeceraFicha {
         this.pr_id = pr_id;
     }
 
-    
+    public String getPf_defInstituciones() {
+        return this.pf_defInstituciones;
+    }
 
-    public CabeceraFicha() {
+    public void setPf_defInstituciones(String pf_defInstituciones) {
+        this.pf_defInstituciones = pf_defInstituciones;
+    }
+
+    public String getPf_defResponsable() {
+        return this.pf_defResponsable;
+    }
+
+    public void setPf_defResponsable(String pf_defResponsable) {
+        this.pf_defResponsable = pf_defResponsable;
     }
 
 
-
-    public CabeceraFicha(String pf_definicion, Integer pf_id, Integer pie_id, Date pf_fecha_ini, Date pf_fecha_fin, Integer pf_nummanipuladores, String pf_ubiseralimentacion, Integer pf_racionesrecibieron, String pf_derracionesrecibieron, Integer pf_nusuarios, Integer pf_resultado, Integer pf_estado, Integer pf_ultimoHito, String pfObservacionesGeneral, Integer pr_id) {
+    public CabeceraFicha(String pf_definicion, Integer pf_id, Integer pie_id, Date pf_fecha_ini, Date pf_fecha_fin, Integer pf_nummanipuladores, String pf_ubiseralimentacion, Integer pf_racionesrecibieron, String pf_derracionesrecibieron, Integer pf_nusuarios, Integer pf_resultado, Integer pf_estado, Integer pf_ultimoHito, String pfObservacionesGeneral, Integer pr_id, String pf_defInstituciones, String pf_defResponsable) {
         this.pf_definicion = pf_definicion;
         this.pf_id = pf_id;
         this.pie_id = pie_id;
@@ -164,8 +176,13 @@ public class CabeceraFicha {
         this.pf_ultimoHito = pf_ultimoHito;
         this.pfObservacionesGeneral = pfObservacionesGeneral;
         this.pr_id = pr_id;
+        this.pf_defInstituciones = pf_defInstituciones;
+        this.pf_defResponsable = pf_defResponsable;
     }
 
+    public CabeceraFicha() {
+        
+    }
 
         
 }
